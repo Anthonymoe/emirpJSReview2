@@ -1,6 +1,8 @@
 // cards example
 // deck array for our cards
 let deck = [];
+// our hand
+let hand = [];
 
 function createCard( value, suit ){
     // start with face = value
@@ -45,3 +47,29 @@ function createDeck(){
         createCard( i, 'Hearts' );
     } //end for
 } //end createDeck
+
+function handValue(){
+    // our sum var
+    let sum = 0;
+    // loop through our hand
+    for( let i=0; i<hand.length; i++){
+        // add up all values
+        sum += hand[ i ].value;
+    } // end for
+    // return sum of all values
+    return sum;
+} //end handValue
+
+function hitMe(){
+    hand.push( randomCard() );
+} //end hitMe
+
+function randomCard(){
+    const index = Math.floor(Math.random() * deck.length);
+    const rando = deck[ index ];
+    console.log( 'randomCard:', rando );
+    return rando;
+}
+
+// setup
+createDeck();
